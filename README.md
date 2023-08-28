@@ -34,7 +34,6 @@ This is a school library app with multiple actors that help manage the library. 
 
 ### Key Features <a name="key-features"></a>
 - **Encapsulation**
-- **Abstraction**
 - **Inheritance**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
