@@ -44,7 +44,6 @@ def ask_rental_info(app)
   [date, book_index, person_index]
 end
 
-
 puts "Welcome to School Library App! \n\n"
 
 loop do
@@ -74,4 +73,3 @@ loop do
 
   puts "\n"
 end
-

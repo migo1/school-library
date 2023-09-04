@@ -73,7 +73,6 @@ class App
   end
 
   def list_rentals_by_person(person_id)
-
     person = @persons.find { |p| p.id == person_id }
     rentals = @rentals.select { |r| r.person == person }
     puts 'Rentals'
