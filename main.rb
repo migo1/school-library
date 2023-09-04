@@ -9,7 +9,7 @@ puts "Welcome to School Library App! \n\n"
 loop do
   menu.display_options
 
-  case option
+  case menu.user_option
   when '1'
     app.list_books
   when '2'
