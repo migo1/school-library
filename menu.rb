@@ -10,7 +10,7 @@ class Menu
     puts '7 - Exit'
   end
 
-  def user_choice
+  def user_option
     gets.chomp
   end
 end
