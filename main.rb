@@ -4,6 +4,8 @@ require_relative 'menu'
 app = App.new
 menu = Menu.new
 
+loaded_books = app.load_books_from_json('local_db/books.json')
+
 def ask_user_type
   print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
   gets.chomp
@@ -67,6 +69,7 @@ loop do
     person_id = ask_for_person_id
     app.list_rentals_by_person(person_id)
   when '7'
+    app.save_books_to_json('local_db/books.json')
     print 'Thank you for using this app!'
     break
   end

@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "rentals": [
+
+    ]
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "rentals": [
+
+    ]
+  },
+  {
+    "title": "test",
+    "author": "tester1",
+    "rentals": [
+
+    ]
+  },
+  {
+    "title": "book1",
+    "author": "auth1",
+    "rentals": [
+
+    ]
+  }
+]

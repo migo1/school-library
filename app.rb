@@ -3,11 +3,12 @@ require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
 require_relative 'rental'
+require 'json'
 
 class App
   def initialize
     @persons = []
-    @books = []
+    @books = load_books_from_json('local_db/books.json')
     @rentals = []
   end
 
@@ -57,6 +58,7 @@ class App
   # create book
   def create_book(title, author)
     @books << Book.new(title, author)
+    save_books_to_json('local_db/books.json')
     puts 'Book created successfully'
   end
 
@@ -87,5 +89,22 @@ class App
 
   def display_books(book)
     puts "Title: \"#{book.title}\", Author: #{book.author}"
+  end
+
+  # Method to save books to a JSON file
+  def save_books_to_json(filename)
+    File.open(filename, 'w') do |file|
+      json_data = @books.map(&:store_book)
+      file.write(JSON.pretty_generate(json_data))
+    end
+  end
+
+  def load_books_from_json(filename)
+    return [] unless File.exist?(filename)
+
+    json_data = JSON.parse(File.read(filename))
+    json_data.map do |book_data|
+      Book.new(book_data['title'], book_data['author'])
+    end
   end
 end

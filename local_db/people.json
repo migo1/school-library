@@ -1,0 +1,27 @@
+[
+  {
+    "id": 101,
+    "type": "Student",
+    "name": "Test",
+    "age": "22",
+    "parent_permission": false,
+    "rentals": [
+      {
+        "date": "09-05-2023"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "type": "Teacher",
+    "name": "Tester",
+    "age": "44",
+    "specialization": "Grammar",
+    "parent_permission": true,
+    "rentals": [
+      {
+        "date": "09-08-2023"
+      }
+    ]
+  }
+]
