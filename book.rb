@@ -22,5 +22,4 @@ class Book
       rentals: @rentals
     }
   end
-
 end

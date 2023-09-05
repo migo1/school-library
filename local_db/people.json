@@ -6,7 +6,10 @@
     "age": 35,
     "specialization": "Math",
     "parent_permission": true,
-    "rentals": []
+    "rentals": [
+      "#<Rental:0x00007f155b1ff5c8>",
+      "#<Rental:0x00007f155b1ff208>"
+    ]
   },
   {
     "type": "Student",
@@ -14,6 +17,8 @@
     "name": "Alice Smith",
     "age": 16,
     "parent_permission": false,
-    "rentals": []
+    "rentals": [
+      "#<Rental:0x00007f155b1ff348>"
+    ]
   }
 ]

@@ -4,8 +4,6 @@ require_relative 'menu'
 app = App.new
 menu = Menu.new
 
-loaded_books = app.load_books_from_json('local_db/books.json')
-
 def ask_user_type
   print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
   gets.chomp
@@ -26,14 +24,14 @@ end
 
 def ask_rental_info(app)
   puts 'Select a book from the following list by number'
-  app.list_books.each_with_index do |book, index|
+  app.books.each_with_index do |book, index|
     print "#{index}) "
     app.display_books(book)
   end
   book_index = gets.chomp.to_i
 
   puts 'Select a person from the following list by number (not id)'
-  app.list_persons.each_with_index do |person, index|
+  app.persons.each_with_index do |person, index|
     print "#{index}) "
     app.display_person(person)
   end
@@ -71,6 +69,7 @@ loop do
   when '7'
     app.save_books_to_json('local_db/books.json')
     app.save_people_to_json('local_db/people.json')
+    app.save_rentals_to_json('local_db/rentals.json')
     print 'Thank you for using this app!'
     break
   end

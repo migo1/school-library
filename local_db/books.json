@@ -17,14 +17,15 @@
     "title": "test",
     "author": "tester1",
     "rentals": [
-
+      "#<Rental:0x00007f155b1ff348>",
+      "#<Rental:0x00007f155b1ff208>"
     ]
   },
   {
     "title": "book1",
     "author": "auth1",
     "rentals": [
-
+      "#<Rental:0x00007f155b1ff5c8>"
     ]
   }
 ]

@@ -6,10 +6,12 @@ require_relative 'rental'
 require 'json'
 
 class App
+  attr_reader :books, :persons
+
   def initialize
     @persons = load_people_from_json('local_db/people.json')
     @books = load_books_from_json('local_db/books.json')
-    @rentals = []
+    @rentals = load_rentals_from_json('local_db/rentals.json')
   end
 
   # create person
@@ -73,6 +75,7 @@ class App
 
   def create_rental(date, book_index, person_index)
     @rentals << Rental.new(date, @books[book_index], @persons[person_index])
+    save_rentals_to_json('local_db/rentals.json')
     puts 'Rental created successfully'
   end
 
@@ -127,6 +130,50 @@ class App
     end.compact
   end
 
+  def save_rentals_to_json(filename)
+    rentals_data = @rentals.map do |rental|
+      {
+        date: rental.date,
+        person_id: rental.person.id, # Assuming person has an 'id' attribute
+        book_title: rental.book.title # Assuming book has a 'title' attribute
+      }
+    end
+
+    File.open(filename, 'w') do |file|
+      JSON.dump(rentals_data, file)
+    end
+  end
+
+  def load_rentals_from_json(filename)
+    if File.exist?(filename)
+      file_content = File.read(filename)
+      rentals_data = JSON.parse(file_content)
+
+      # Convert the loaded rental data into Rental objects
+      rentals_data.map do |data|
+        date = data['date']
+        person_id = data['person_id']
+        book_title = data['book_title']
+        person = find_person_by_id(person_id) # Implement a method to find a person by ID
+        book = find_book_by_title(book_title) # Implement a method to find a book by title
+        Rental.new(date, book, person)
+      end
+    else
+      []
+    end
+  rescue JSON::ParserError => e
+    puts "Error parsing JSON file #{filename}: #{e.message}"
+    []
+  end
+
+  def find_book_by_title(book_title)
+    @books.find { |book| book.title == book_title }
+  end
+
+  def find_person_by_id(person_id)
+    @persons.find { |person| person.id == person_id }
+  end
+
   private
 
   def build_person_from_data(data)
@@ -154,5 +201,4 @@ class App
       parent_permission: data['parent_permission']
     ).tap { |student| student.instance_variable_set(:@id, data['id']) }
   end
-
 end
