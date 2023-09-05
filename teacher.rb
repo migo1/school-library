@@ -9,4 +9,16 @@ class Teacher < Person
   def can_use_services?
     true
   end
+
+  def json_data
+    {
+      'type' => self.class.name,
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'specialization' => @specialization,
+      'parent_permission' => @parent_permission,
+      'rentals' => @rentals
+    }
+  end
 end

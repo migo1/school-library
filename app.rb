@@ -7,7 +7,7 @@ require 'json'
 
 class App
   def initialize
-    @persons = []
+    @persons = load_people_from_json('local_db/people.json')
     @books = load_books_from_json('local_db/books.json')
     @rentals = []
   end
@@ -36,6 +36,7 @@ class App
 
     student = Student.new(age, name, parent_permission: permission)
     @persons << student
+    save_people_to_json('local_db/people.json')
     puts 'Student created successfully'
   end
 
@@ -45,6 +46,7 @@ class App
 
     teacher = Teacher.new(age, specialization, name)
     @persons << teacher
+    save_people_to_json('local_db/people.json')
     puts 'Teacher created successfully'
   end
 
@@ -107,4 +109,50 @@ class App
       Book.new(book_data['title'], book_data['author'])
     end
   end
+
+  def save_people_to_json(filename)
+    File.open(filename, 'w') do |file|
+      json_data = @persons.map(&:json_data)
+      file.write(JSON.pretty_generate(json_data))
+    end
+  end
+
+  def load_people_from_json(filename)
+    return [] unless File.exist?(filename)
+
+    json_data = JSON.parse(File.read(filename))
+
+    json_data.map do |person_data|
+      build_person_from_data(person_data)
+    end.compact
+  end
+
+  private
+
+  def build_person_from_data(data)
+    case data['type']
+    when 'Teacher'
+      build_teacher(data)
+    when 'Student'
+      build_student(data)
+    end
+  end
+
+  def build_teacher(data)
+    Teacher.new(
+      data['age'],
+      data['specialization'],
+      data['name'],
+      parent_permission: data['parent_permission']
+    ).tap { |teacher| teacher.instance_variable_set(:@id, data['id']) }
+  end
+
+  def build_student(data)
+    Student.new(
+      data['age'],
+      data['name'],
+      parent_permission: data['parent_permission']
+    ).tap { |student| student.instance_variable_set(:@id, data['id']) }
+  end
+
 end

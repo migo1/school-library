@@ -70,6 +70,7 @@ loop do
     app.list_rentals_by_person(person_id)
   when '7'
     app.save_books_to_json('local_db/books.json')
+    app.save_people_to_json('local_db/people.json')
     print 'Thank you for using this app!'
     break
   end
