@@ -5,6 +5,7 @@ require_relative 'student'
 require_relative 'rental'
 require 'json'
 
+# App class
 # rubocop:disable Metrics/ClassLength
 class App
   attr_reader :books, :persons
@@ -135,8 +136,8 @@ class App
     rentals_data = @rentals.map do |rental|
       {
         date: rental.date,
-        person_id: rental.person.id, # Assuming person has an 'id' attribute
-        book_title: rental.book.title # Assuming book has a 'title' attribute
+        person_id: rental.person.id,
+        book_title: rental.book.title
       }
     end
 
@@ -155,8 +156,8 @@ class App
         date = data['date']
         person_id = data['person_id']
         book_title = data['book_title']
-        person = find_person_by_id(person_id) # Implement a method to find a person by ID
-        book = find_book_by_title(book_title) # Implement a method to find a book by title
+        person = find_person_by_id(person_id)
+        book = find_book_by_title(book_title)
         Rental.new(date, book, person)
       end
     else
@@ -203,4 +204,5 @@ class App
     ).tap { |student| student.instance_variable_set(:@id, data['id']) }
   end
 end
+# Convert the loaded rental data into Rental objects
 # rubocop:enable Metrics/ClassLength
