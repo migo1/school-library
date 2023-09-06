@@ -7,8 +7,8 @@
     "specialization": "Math",
     "parent_permission": true,
     "rentals": [
-      "#<Rental:0x00007f6f3418f268>",
-      "#<Rental:0x00007f6f3418ef20>"
+      "#<Rental:0x00007f5a033797b8>",
+      "#<Rental:0x00007f5a03379358>"
     ]
   },
   {
@@ -18,7 +18,7 @@
     "age": 16,
     "parent_permission": false,
     "rentals": [
-      "#<Rental:0x00007f6f3418f060>"
+      "#<Rental:0x00007f5a03379510>"
     ]
   }
 ]
