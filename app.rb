@@ -5,6 +5,7 @@ require_relative 'student'
 require_relative 'rental'
 require 'json'
 
+# rubocop:disable Metrics/ClassLength
 class App
   attr_reader :books, :persons
 
@@ -202,3 +203,4 @@ class App
     ).tap { |student| student.instance_variable_set(:@id, data['id']) }
   end
 end
+# rubocop:enable Metrics/ClassLength
