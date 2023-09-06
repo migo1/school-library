@@ -136,8 +136,8 @@ class App
     rentals_data = @rentals.map do |rental|
       {
         date: rental.date,
-        person_id: rental.person.id, 
-        book_title: rental.book.title 
+        person_id: rental.person.id,
+        book_title: rental.book.title
       }
     end
 
