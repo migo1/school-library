@@ -80,6 +80,12 @@ Go to the project directory.
 - GitHub: [Link](https://github.com/migo1)
 - LinkedIn: [Link](https://www.linkedin.com/in/robertmigot)
 
+👤 **Okolie Tochukwu**
+
+- GitHub: [@ticoniq](https://github.com/ticoniq)
+- Twitter: [@ticoniq_](https://twitter.com/ticoniq_)
+- LinkedIn: [ticoniq](https://linkedin.com/in/ticoniq)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

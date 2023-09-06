@@ -14,4 +14,12 @@ class Book
     @rentals << rental
     rental.book = self
   end
+
+  def store_book
+    {
+      title: @title,
+      author: @author,
+      rentals: @rentals
+    }
+  end
 end

@@ -1,0 +1,24 @@
+[
+  {
+    "type": "Teacher",
+    "id": 1,
+    "name": "John Doe",
+    "age": 35,
+    "specialization": "Math",
+    "parent_permission": true,
+    "rentals": [
+      "#<Rental:0x00007f5a033797b8>",
+      "#<Rental:0x00007f5a03379358>"
+    ]
+  },
+  {
+    "type": "Student",
+    "id": 2,
+    "name": "Alice Smith",
+    "age": 16,
+    "parent_permission": false,
+    "rentals": [
+      "#<Rental:0x00007f5a03379510>"
+    ]
+  }
+]

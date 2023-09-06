@@ -16,4 +16,15 @@ class Student < Person
     @classroom = classroom
     classroom.students << self unless classroom.students.include?(self)
   end
+
+  def json_data
+    {
+      'type' => self.class.name,
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission,
+      'rentals' => @rentals
+    }
+  end
 end
