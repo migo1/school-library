@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require 'date'
 
 describe Person do
   before(:each) do
@@ -26,6 +27,13 @@ describe Person do
   context 'method' do
     it 'can use services with parent permission' do
       expect(@person.can_use_services?).to be(true)
+    end
+  end
+
+  describe '#add_rental' do
+    it 'should add a rental to the person' do
+      rental = Rental.new('2023-09-07', Book.new('new Book', 'new author'), @person)
+      expect(@person.rentals).to include(rental)
     end
   end
 end
