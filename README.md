@@ -68,6 +68,14 @@ Go to the project directory.
   cd school-library
   bundle install
 ```
+from your terminal to install Ruby gems.
+
+### Testing
+
+``` bash 
+  rspec spec
+``` 
+to run all the test cases
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
