@@ -15,7 +15,6 @@ describe 'Decorator classes' do
     it 'should be an instance of CapitalizeDecorator' do
       expect(@capital).to be_an_instance_of(CapitalizeDecorator)
     end
-
   end
 
   context 'methods' do
