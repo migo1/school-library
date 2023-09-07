@@ -5,7 +5,6 @@ describe Person do
     @person = Person.new(25, 'John Doe', parent_permission: true)
   end
 
-
   context 'attributes' do
     it 'has an age' do
       expect(@person.age).to eq(25)
